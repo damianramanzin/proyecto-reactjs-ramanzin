@@ -1,1 +1,10 @@
- 
+.cart{
+    width: 20px;
+    height: 20px;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
