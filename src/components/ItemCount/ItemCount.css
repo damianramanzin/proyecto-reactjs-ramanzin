@@ -1,0 +1,11 @@
+
+.count-container{
+    margin:  0 .5rem;
+}
+
+.item-count-container{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 220px;
+    width: 100%;
+}

@@ -3,8 +3,8 @@
     height: 20px;
 }
 
-.nav-bar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+
+.navbar{
+    background-color: rgba(151, 42, 253, 0.479);
 }
