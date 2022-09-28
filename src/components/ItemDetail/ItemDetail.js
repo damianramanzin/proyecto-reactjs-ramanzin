@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 const data = [
     {
         id: 1,
@@ -49,6 +51,27 @@ const data = [
     }
 ];
 
+function ItemDetail() {
+    let [item, setItem] = useState({});
+    useEffect(() => {
+        getItem().then((respuestaDatos) => setItem(respuestaDatos));
+    }, []);
+    
+    return (
+        <div>
+            <div className="detail_container">
+                <ItemDetail 
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                detail={item.detail}
+                img={item.img}
+            />
+            </div>
+        </div>
+    );
+}
+
 export default function getItems() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -56,3 +79,4 @@ export default function getItems() {
         }, 2000);
     });
 }
+export default ItemDetail;
