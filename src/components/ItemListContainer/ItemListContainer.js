@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css"
 import getItems from "../ItemDetail/ItemDetail";
 import ItemList from "../ItemList/ItemList";
-import { useParams } from 'react-router-dom';
 
 function ItemListContainer(props) {
 
@@ -20,7 +19,5 @@ return (
     </div>
     )
 }
-
-const {id} = useParams();
 
 export default ItemListContainer

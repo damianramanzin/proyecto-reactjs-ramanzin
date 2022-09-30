@@ -2,10 +2,10 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
-import CartWidget from './components/Navbar/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'; 
 import ItemCount from './components/ItemCount/ItemCount';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
 
 function App() {
@@ -14,17 +14,16 @@ function App() {
       <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={
-      <ItemListContainer greeting="¡Bienvenido a Librosonline!" />
-      }/>
-      <Route path="/ruta2" element={
-      <ItemDetail />
-      }/>
+        <Route path="/Home/:" element={<ItemListContainer />} />
+        <Route path="/categoria/:libros" element={<ItemListContainer />}></Route>
+        <Route path="/detalle/:itemId"  element={<ItemDetailContainer />} />
+        <Route path="/Contacto/:" element={ <h1> Contacto</h1>}/>
+        <ItemListContainer greeting="¡Bienvenido a Librosonline!" />
       </Routes>
       <ItemCount/>
       </BrowserRouter>
     </div>
   );
 }
- 
+
 export default App;
