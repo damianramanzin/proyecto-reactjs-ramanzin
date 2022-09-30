@@ -7,7 +7,7 @@ function ItemDetail(props) {
   let { price, title , img , detail } = props;
   
   return (
-    <div className='item'>
+    <div style={{display:flex}} className='item'>
       <div className='item__detail'>
       <div className='item__title--detail'>
         <h3>{title}</h3>
