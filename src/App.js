@@ -14,11 +14,10 @@ function App() {
       <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/Home/:" element={<ItemListContainer />} />
+        <Route path="/Home/:" element={<ItemListContainer greeting="¡Bienvenido a Librosonline!" />} />
         <Route path="/categoria/:libros" element={<ItemListContainer />}></Route>
         <Route path="/detalle/:itemId"  element={<ItemDetailContainer />} />
         <Route path="/Contacto/:" element={ <h1> Contacto</h1>}/>
-        <ItemListContainer greeting="¡Bienvenido a Librosonline!" />
       </Routes>
       <ItemCount/>
       </BrowserRouter>
