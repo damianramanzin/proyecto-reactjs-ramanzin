@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css"
-import getItems from "../ItemDetail/ItemDetail";
+import { getItem } from "../MockApi/MockApi";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer(props) {
 
     let [data, setData] = useState([]);
+
+    const {categoryId} = useParams()
+
     useEffect(() => {
-        getItems().then((respuestaDatos) => setData(respuestaDatos));
+        getItem().then((respuestaDatos) =>
+            setData(respuestaDatos)
+        );
     }, []);
 
 return (

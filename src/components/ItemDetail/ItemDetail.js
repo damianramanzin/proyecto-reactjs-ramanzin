@@ -1,30 +1,36 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 
-function ItemDetail(props) {
+const ItemDetail = ({ price, title , img , detail }) => {
+  let estadoCart = true;
 
-  let { price, title , img , detail } = props;
+  const onAddToCart = (quantity) => {
+    alert(`agregaste al carrito ${quantity} productos!`);
+}
   
-  return (
-    <div className='item'>
-      <div className='item__detail'>
-      <div className='item__title--detail'>
-        <h3>{title}</h3>
-        <h4>$ {price}</h4>
-      </div>
-      <div className='item__img--detail'>
-        <img src={img} alt={title} />
-        <ItemCount/>
-        <p>Comprar</p>
-      </div>
-      <div className="item__details--detail">
-        <p>{detail}</p>
-      </div>
-      
+return (
+  <div className="card">
+    <div className="card-img">
+      <div> </div>
     </div>
+    <div className="card-detail">
+      <h3> {title} </h3>
+      <p> {detail} </p>
+      <h4> $ {price} </h4>
+
+      {estadoCart === false ? (
+        <ItemCount initial={1} stock={10} onAddToCart={onAddToCart} />
+      ) : (
+        <Link to="/Cart/">
+          <Button variant="outline-dark">Finalizar Compra</Button>
+        </Link>
+      )}
     </div>
-  )
+  </div>
+);
 }
 
 export default ItemDetail

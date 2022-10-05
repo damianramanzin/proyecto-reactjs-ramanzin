@@ -1,9 +1,8 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import ItemCount from '../ItemCount/ItemCount';
 
-function Item(props) {
-
-    let { price, title , img , detail } = props;
+function Item({ id, price, title , img , detail }) {
 
     return (
     <div className='item'>
@@ -11,13 +10,13 @@ function Item(props) {
             <h3>{title}</h3>
         </div>
         <div className='item--img'>
-            <img src={img} alt="pua ?" />
+            <img src={img} alt="libro" />
         </div>
         <div className="item--details">
             <h4>$ {price}</h4>
         <p>{detail}</p>
         </div>
-        <ItemCount/>
+        <Link to={`/detalle/${id}`}>ver detalle</Link>
     </div>
     )
 }
