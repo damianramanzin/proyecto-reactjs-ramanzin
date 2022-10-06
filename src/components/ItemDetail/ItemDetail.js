@@ -1,36 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useCartContext } from '../../Context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 
-const ItemDetail = ({ price, title , img , detail }) => {
-  let estadoCart = true;
+function ItemDetail(data) {
+  const [goToCart, setGoToCart] = useState(false);
+  const {addProduct} = useCartContext();
 
-  const onAddToCart = (quantity) => {
-    alert(`agregaste al carrito ${quantity} productos!`);
-}
+  const onAdd = (quantity) => {
+    setGoToCart(true);
+    addProduct(data, quantity);
+  }
   
-return (
-  <div className="card">
-    <div className="card-img">
-      <div> </div>
+  return (
+    <div className="main container">
+      <img src={data.img}></img>
+      <div>
+      <h3>{data.title}</h3>
+      <p>{data.detail}</p>
+      <h4>{data.price}</h4>
+      </div>
+      {
+        ( goToCart)
+        ? <Link to="/Cart/">Finalizar Compra</Link>
+        : <ItemCount initial={1} stock={5} onAddToCart={onAdd}/>
+      }
     </div>
-    <div className="card-detail">
-      <h3> {title} </h3>
-      <p> {detail} </p>
-      <h4> $ {price} </h4>
-
-      {estadoCart === false ? (
-        <ItemCount initial={1} stock={10} onAddToCart={onAddToCart} />
-      ) : (
-        <Link to="/Cart/">
-          <Button variant="outline-dark">Finalizar Compra</Button>
-        </Link>
-      )}
-    </div>
-  </div>
-);
+  );
 }
 
-export default ItemDetail
+export default ItemDetail;
