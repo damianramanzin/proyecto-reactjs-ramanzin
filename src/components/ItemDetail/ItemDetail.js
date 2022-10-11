@@ -20,7 +20,7 @@ function ItemDetail(data) {
       <div>
       <h3>{data.title}</h3>
       <p>{data.detail}</p>
-      <h4>{data.price}</h4>
+      <h4>${data.price}</h4>
       </div>
       {
         ( goToCart)
