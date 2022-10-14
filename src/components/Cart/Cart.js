@@ -5,6 +5,7 @@ import {useCartContext} from "../../Context/CartContext"
 function Cart(data) {
     const {cart, totalPrice} = useCartContext();
     const { removeProduct } = useCartContext();
+    const { clearCart } = useCartContext();
     if (cart.lenght === 0) {
         return (
             <>
